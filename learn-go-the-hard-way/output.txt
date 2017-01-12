@@ -1,0 +1,5 @@
+This is a good day.
+That is a bad day.
+These are good days.
+Those are bad days.
+What do you think about today and tomorrow?
