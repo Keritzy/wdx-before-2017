@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		870D1E2B19404172002AF8CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870D1E2A19404172002AF8CC /* Foundation.framework */; };
+		870D1E2D19404172002AF8CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870D1E2C19404172002AF8CC /* CoreGraphics.framework */; };
+		870D1E2F19404172002AF8CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870D1E2E19404172002AF8CC /* UIKit.framework */; };
+		870D1E3519404172002AF8CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 870D1E3319404172002AF8CC /* InfoPlist.strings */; };
+		870D1E3719404172002AF8CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 870D1E3619404172002AF8CC /* main.m */; };
+		870D1E3B19404172002AF8CC /* GWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 870D1E3A19404172002AF8CC /* GWAppDelegate.m */; };
+		870D1E3E19404172002AF8CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870D1E3C19404172002AF8CC /* Main.storyboard */; };
+		870D1E4119404172002AF8CC /* GWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870D1E4019404172002AF8CC /* GWViewController.m */; };
+		870D1E4319404172002AF8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870D1E4219404172002AF8CC /* Images.xcassets */; };
+		870D1E4A19404172002AF8CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870D1E4919404172002AF8CC /* XCTest.framework */; };
+		870D1E4B19404172002AF8CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870D1E2A19404172002AF8CC /* Foundation.framework */; };
+		870D1E4C19404172002AF8CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870D1E2E19404172002AF8CC /* UIKit.framework */; };
+		870D1E5419404172002AF8CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 870D1E5219404172002AF8CC /* InfoPlist.strings */; };
+		870D1E5619404172002AF8CC /* GoWordsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 870D1E5519404172002AF8CC /* GoWordsTests.m */; };
+		870D1E611940432D002AF8CC /* GWWord.m in Sources */ = {isa = PBXBuildFile; fileRef = 870D1E601940432D002AF8CC /* GWWord.m */; };
+		8788804B19564990009ACA4B /* GWSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8788804A19564990009ACA4B /* GWSettingViewController.m */; };
+		8788804D19564B14009ACA4B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8788804C19564B14009ACA4B /* MessageUI.framework */; };
+		87A189231940AEEB008C09C5 /* gre.data in Resources */ = {isa = PBXBuildFile; fileRef = 87A189221940AEEB008C09C5 /* gre.data */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		870D1E4D19404172002AF8CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 870D1E1F19404172002AF8CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 870D1E2619404172002AF8CC;
+			remoteInfo = GoWords;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		870D1E2719404172002AF8CC /* GoWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		870D1E2A19404172002AF8CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		870D1E2C19404172002AF8CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		870D1E2E19404172002AF8CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		870D1E3219404172002AF8CC /* GoWords-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoWords-Info.plist"; sourceTree = "<group>"; };
+		870D1E3419404172002AF8CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		870D1E3619404172002AF8CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		870D1E3819404172002AF8CC /* GoWords-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoWords-Prefix.pch"; sourceTree = "<group>"; };
+		870D1E3919404172002AF8CC /* GWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWAppDelegate.h; sourceTree = "<group>"; };
+		870D1E3A19404172002AF8CC /* GWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GWAppDelegate.m; sourceTree = "<group>"; };
+		870D1E3D19404172002AF8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		870D1E3F19404172002AF8CC /* GWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWViewController.h; sourceTree = "<group>"; };
+		870D1E4019404172002AF8CC /* GWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GWViewController.m; sourceTree = "<group>"; };
+		870D1E4219404172002AF8CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		870D1E4819404172002AF8CC /* GoWordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoWordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		870D1E4919404172002AF8CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		870D1E5119404172002AF8CC /* GoWordsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoWordsTests-Info.plist"; sourceTree = "<group>"; };
+		870D1E5319404172002AF8CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		870D1E5519404172002AF8CC /* GoWordsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoWordsTests.m; sourceTree = "<group>"; };
+		870D1E5F1940432D002AF8CC /* GWWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWWord.h; sourceTree = "<group>"; };
+		870D1E601940432D002AF8CC /* GWWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWWord.m; sourceTree = "<group>"; };
+		8788804919564990009ACA4B /* GWSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWSettingViewController.h; sourceTree = "<group>"; };
+		8788804A19564990009ACA4B /* GWSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWSettingViewController.m; sourceTree = "<group>"; };
+		8788804C19564B14009ACA4B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		87A189221940AEEB008C09C5 /* gre.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gre.data; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		870D1E2419404172002AF8CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8788804D19564B14009ACA4B /* MessageUI.framework in Frameworks */,
+				870D1E2D19404172002AF8CC /* CoreGraphics.framework in Frameworks */,
+				870D1E2F19404172002AF8CC /* UIKit.framework in Frameworks */,
+				870D1E2B19404172002AF8CC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		870D1E4519404172002AF8CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				870D1E4A19404172002AF8CC /* XCTest.framework in Frameworks */,
+				870D1E4C19404172002AF8CC /* UIKit.framework in Frameworks */,
+				870D1E4B19404172002AF8CC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		870D1E1E19404172002AF8CC = {
+			isa = PBXGroup;
+			children = (
+				870D1E3019404172002AF8CC /* GoWords */,
+				870D1E4F19404172002AF8CC /* GoWordsTests */,
+				870D1E2919404172002AF8CC /* Frameworks */,
+				870D1E2819404172002AF8CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		870D1E2819404172002AF8CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				870D1E2719404172002AF8CC /* GoWords.app */,
+				870D1E4819404172002AF8CC /* GoWordsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		870D1E2919404172002AF8CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8788804C19564B14009ACA4B /* MessageUI.framework */,
+				870D1E2A19404172002AF8CC /* Foundation.framework */,
+				870D1E2C19404172002AF8CC /* CoreGraphics.framework */,
+				870D1E2E19404172002AF8CC /* UIKit.framework */,
+				870D1E4919404172002AF8CC /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		870D1E3019404172002AF8CC /* GoWords */ = {
+			isa = PBXGroup;
+			children = (
+				870D1E621940433B002AF8CC /* Class */,
+				870D1E3C19404172002AF8CC /* Main.storyboard */,
+				870D1E3919404172002AF8CC /* GWAppDelegate.h */,
+				870D1E3A19404172002AF8CC /* GWAppDelegate.m */,
+				870D1E3F19404172002AF8CC /* GWViewController.h */,
+				870D1E4019404172002AF8CC /* GWViewController.m */,
+				870D1E4219404172002AF8CC /* Images.xcassets */,
+				870D1E3119404172002AF8CC /* Supporting Files */,
+				8788804919564990009ACA4B /* GWSettingViewController.h */,
+				8788804A19564990009ACA4B /* GWSettingViewController.m */,
+			);
+			path = GoWords;
+			sourceTree = "<group>";
+		};
+		870D1E3119404172002AF8CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				87A189221940AEEB008C09C5 /* gre.data */,
+				870D1E3219404172002AF8CC /* GoWords-Info.plist */,
+				870D1E3319404172002AF8CC /* InfoPlist.strings */,
+				870D1E3619404172002AF8CC /* main.m */,
+				870D1E3819404172002AF8CC /* GoWords-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		870D1E4F19404172002AF8CC /* GoWordsTests */ = {
+			isa = PBXGroup;
+			children = (
+				870D1E5519404172002AF8CC /* GoWordsTests.m */,
+				870D1E5019404172002AF8CC /* Supporting Files */,
+			);
+			path = GoWordsTests;
+			sourceTree = "<group>";
+		};
+		870D1E5019404172002AF8CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				870D1E5119404172002AF8CC /* GoWordsTests-Info.plist */,
+				870D1E5219404172002AF8CC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		870D1E621940433B002AF8CC /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				870D1E5F1940432D002AF8CC /* GWWord.h */,
+				870D1E601940432D002AF8CC /* GWWord.m */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		870D1E2619404172002AF8CC /* GoWords */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 870D1E5919404172002AF8CC /* Build configuration list for PBXNativeTarget "GoWords" */;
+			buildPhases = (
+				870D1E2319404172002AF8CC /* Sources */,
+				870D1E2419404172002AF8CC /* Frameworks */,
+				870D1E2519404172002AF8CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoWords;
+			productName = GoWords;
+			productReference = 870D1E2719404172002AF8CC /* GoWords.app */;
+			productType = "com.apple.product-type.application";
+		};
+		870D1E4719404172002AF8CC /* GoWordsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 870D1E5C19404172002AF8CC /* Build configuration list for PBXNativeTarget "GoWordsTests" */;
+			buildPhases = (
+				870D1E4419404172002AF8CC /* Sources */,
+				870D1E4519404172002AF8CC /* Frameworks */,
+				870D1E4619404172002AF8CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				870D1E4E19404172002AF8CC /* PBXTargetDependency */,
+			);
+			name = GoWordsTests;
+			productName = GoWordsTests;
+			productReference = 870D1E4819404172002AF8CC /* GoWordsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		870D1E1F19404172002AF8CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GW;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = wdxtub;
+				TargetAttributes = {
+					870D1E2619404172002AF8CC = {
+						DevelopmentTeam = E43NMU4WVY;
+					};
+					870D1E4719404172002AF8CC = {
+						TestTargetID = 870D1E2619404172002AF8CC;
+					};
+				};
+			};
+			buildConfigurationList = 870D1E2219404172002AF8CC /* Build configuration list for PBXProject "GoWords" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 870D1E1E19404172002AF8CC;
+			productRefGroup = 870D1E2819404172002AF8CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				870D1E2619404172002AF8CC /* GoWords */,
+				870D1E4719404172002AF8CC /* GoWordsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		870D1E2519404172002AF8CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				870D1E4319404172002AF8CC /* Images.xcassets in Resources */,
+				870D1E3519404172002AF8CC /* InfoPlist.strings in Resources */,
+				87A189231940AEEB008C09C5 /* gre.data in Resources */,
+				870D1E3E19404172002AF8CC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		870D1E4619404172002AF8CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				870D1E5419404172002AF8CC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		870D1E2319404172002AF8CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				870D1E3B19404172002AF8CC /* GWAppDelegate.m in Sources */,
+				870D1E611940432D002AF8CC /* GWWord.m in Sources */,
+				870D1E4119404172002AF8CC /* GWViewController.m in Sources */,
+				870D1E3719404172002AF8CC /* main.m in Sources */,
+				8788804B19564990009ACA4B /* GWSettingViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		870D1E4419404172002AF8CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				870D1E5619404172002AF8CC /* GoWordsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		870D1E4E19404172002AF8CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 870D1E2619404172002AF8CC /* GoWords */;
+			targetProxy = 870D1E4D19404172002AF8CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		870D1E3319404172002AF8CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				870D1E3419404172002AF8CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		870D1E3C19404172002AF8CC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				870D1E3D19404172002AF8CC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		870D1E5219404172002AF8CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				870D1E5319404172002AF8CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		870D1E5719404172002AF8CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		870D1E5819404172002AF8CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		870D1E5A19404172002AF8CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoWords/GoWords-Prefix.pch";
+				INFOPLIST_FILE = "GoWords/GoWords-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		870D1E5B19404172002AF8CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoWords/GoWords-Prefix.pch";
+				INFOPLIST_FILE = "GoWords/GoWords-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		870D1E5D19404172002AF8CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GoWords.app/GoWords";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoWords/GoWords-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GoWordsTests/GoWordsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		870D1E5E19404172002AF8CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GoWords.app/GoWords";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoWords/GoWords-Prefix.pch";
+				INFOPLIST_FILE = "GoWordsTests/GoWordsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		870D1E2219404172002AF8CC /* Build configuration list for PBXProject "GoWords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				870D1E5719404172002AF8CC /* Debug */,
+				870D1E5819404172002AF8CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		870D1E5919404172002AF8CC /* Build configuration list for PBXNativeTarget "GoWords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				870D1E5A19404172002AF8CC /* Debug */,
+				870D1E5B19404172002AF8CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		870D1E5C19404172002AF8CC /* Build configuration list for PBXNativeTarget "GoWordsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				870D1E5D19404172002AF8CC /* Debug */,
+				870D1E5E19404172002AF8CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 870D1E1F19404172002AF8CC /* Project object */;
+}

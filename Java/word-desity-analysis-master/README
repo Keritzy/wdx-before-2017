@@ -1,0 +1,113 @@
+# Word Density Analysis
+
+Author: Da Wang
+Email: dawang@andrew.cmu.edu
+
+## Design
+
+The Design is quite simple. With two helper classes (HtmlPage and Ngrammer),
+the main function will call the class Analyser to finish the word density
+analysis job and print out the result.
+
+Different classes don't rely on each other so that it will be easy to
+integrate them into different module. Also, simple exception message will be
+shown if something goes wrong
+
+## Approach
+
+The main approach for word density analysis in my implementation contains two
+major part: Ngram and different weights for different formats.
+
+For the Ngram part, after splitting sentences to words, I filtered out
+stopwords so as to only keep the meaningful words meanwhile accelerate
+computing process. Then I generated N-gram pattern for these words and count
+their appearance.
+
+For measuring how relevant the ngram phrases are, I handle different part of
+the web page one by one. If a word appears in title, it will contribute more to
+its relevant score than in body. The weights can be set by man or optimized
+with machine learning techniques. Title/Metadata/Header/Body/Href are treated
+differently to get a more understanding result.
+
+## Data Structure
+
+I use HashSet to store the stopwords so that it will only take O(1) time to
+check if the word is a stopword.
+
+I use HashMap to store the temporary result for the ngram phrases and their
+relevant score.
+
+The reason for using TreeMap is that based on red-black tree, this data
+structure sorted its elements so that when I need to fetch the top N result,
+it won't be a difficult task. Though it may take more time than just using
+the hashmap. But with an average O(log n) time complexity and sorted result,
+it is a tradeoff that makes sense.
+
+Using ArrayDeque has the same reason - fast visiting even with lots of elements.
+
+
+## Sample Output
+
+For http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/
+
+java -jar BrightEdge.jar "http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/"
+Fetching Content from: http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/
+Parsing URL: http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/
+Loading Stopwords
+Loading Completed
+Parsing Title
+Parsing Metadata
+Parsing Headers
+Parsing Body
+Parsing Href
+
+Rank	Score	Keywords
+----	-----	--------
+ 1	    5.300	edward snowden
+ 2	    5.100	leaks safeguard, safeguard privacy liberty, privacy liberty, man nsa leaks, safeguard privacy, leaks safeguard privacy, nsa leaks safeguard, nsa leaks, man nsa
+ 3	    3.600	replay videos
+ 4	    3.000	liberty cnnpolitics, privacy liberty cnnpolitics
+ 5	    2.600	edward snowden live, surveillance program, snowden live
+
+For http://www.amazon.com/Cuisinart-CPT-122-Compact-2-Slice-Toaster/dp/B009GQ034C/ref=sr_1_1?s=kitchen&ie=UTF8&qid=1431620315&sr=1-1&keywords=toaster
+
+java -jar BrightEdge.jar "http://www.amazon.com/Cuisinart-CPT-122-Compact-2-Slice-Toaster/dp/B009GQ034C/ref=sr_1_1?s=kitchen&ie=UTF8&qid=1431620315&sr=1-1&keywords=toaster"
+Fetching Content from: http://www.amazon.com/Cuisinart-CPT-122-Compact-2-Slice-Toaster/dp/B009GQ034C/ref=sr_1_1?s=kitchen&ie=UTF8&qid=1431620315&sr=1-1&keywords=toaster
+Parsing URL: http://www.amazon.com/Cuisinart-CPT-122-Compact-2-Slice-Toaster/dp/B009GQ034C/ref=sr_1_1?s=kitchen&ie=UTF8&qid=1431620315&sr=1-1&keywords=toaster
+Loading Stopwords
+Loading Completed
+Parsing Title
+Parsing Metadata
+Parsing Headers
+Parsing Body
+Parsing Href
+
+Rank	Score	Keywords
+----	-----	--------
+ 1	    8.400	2-slice toaster
+ 2	    6.100	cuisinart cpt-122 compact, cuisinart cpt-122, cpt-122 compact
+ 3	    6.000	cpt-122 compact 2-slice, compact 2-slice toaster, compact 2-slice
+ 4	    5.700	kitchen dining
+ 5	    4.800	customer reviews
+
+
+ For http://blog.rei.com/camp/how-to-introduce-your-indoorsy-friend-to-the-outdoors/
+
+ java -jar BrightEdge.jar "http://blog.rei.com/camp/how-to-introduce-your-indoorsy-friend-to-the-outdoors/"
+ Fetching Content from: http://blog.rei.com/camp/how-to-introduce-your-indoorsy-friend-to-the-outdoors/
+ Parsing URL: http://blog.rei.com/camp/how-to-introduce-your-indoorsy-friend-to-the-outdoors/
+ Loading Stopwords
+ Loading Completed
+ Parsing Title
+ Parsing Metadata
+ Parsing Headers
+ Parsing Body
+ Parsing Href
+
+ Rank	Score	Keywords
+ ----	-----	--------
+  1	    5.300	introduce indoorsy friend, indoorsy friend, introduce indoorsy
+  2	    5.200	friend outdoors, indoorsy friend outdoors
+  3	    2.500	start slow, forget start slow, introduce friend hike, introduce friend, forget start, friend hike, camp--don't forget start, hike camp--don't forget, passion outdoors, camp--don't forget, friend hike camp--don't, share passion outdoors, passion outdoors introduce, outdoors introduce friend, share passion, hike camp--don't, outdoors introduce
+  4	    1.800	off-the-grid backpacking, nighttime photos, illuminate nighttime photos, painting illuminate nighttime, headlamp painting illuminate, introduction off-the-grid, introduction off-the-grid backpacking, painting illuminate, headlamp painting, illuminate nighttime
+  5	    1.200	nature national parks, story inspiration, parks introduction off-the-grid, shop home, inspiration wheels finding, wheels finding nature, gear review, miles story, backpacking headlamp, trail lifeblood, finding nature national, parks introduction, life miles story, national parks introduction, miles story inspiration, off-the-grid backpacking headlamp, wheels finding, trail lifeblood seasons, story inspiration wheels, life miles, lifeblood seasons, nature national, national parks, inspiration wheels, finding nature, backpacking headlamp painting
