@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>64820BA0-6E29-4FC6-B0C5-BE4811CAEC77</string>
+	<key>IDESourceControlProjectName</key>
+	<string>L0Smoothing</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>626F246B391462138270D7A3E0C7EB68FC68A5BA</key>
+		<string>https://github.com/wdxtub/L0Smoothing.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>L0Smoothing.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>626F246B391462138270D7A3E0C7EB68FC68A5BA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wdxtub/L0Smoothing.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>626F246B391462138270D7A3E0C7EB68FC68A5BA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>626F246B391462138270D7A3E0C7EB68FC68A5BA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>L0Smoothing</string>
+		</dict>
+	</array>
+</dict>
+</plist>

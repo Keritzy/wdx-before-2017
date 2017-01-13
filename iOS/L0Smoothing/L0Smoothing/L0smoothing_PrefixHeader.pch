@@ -1,0 +1,30 @@
+//
+//  L0smoothing_PrefixHeader.pch
+//  L0Smoothing
+//
+//  Created by WangDa on 11/10/14.
+//  Copyright (c) 2014 DaWang. All rights reserved.
+//
+
+#ifndef L0Smoothing_L0smoothing_PrefixHeader_pch
+#define L0Smoothing_L0smoothing_PrefixHeader_pch
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __cplusplus
+#include <opencv2/opencv.hpp>
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+#endif
+
+#include "TargetConditionals.h"
+
+#endif
