@@ -1,0 +1,155 @@
+Car Configuration Application
+-------------------------------------
+Loading focus.txt
+- - - - - - - - - - - - - - - - - - -
+Focus Wagon ZTW
+Base Price :$18445.00
+
+[Color]
+Fort Knox Gold Clearcoat Metallic: $0.00
+Liquid Grey Clearcoat Metallic: $0.00
+Infra-Red Clearcoat: $0.00
+Grabber Green Clearcoat Metallic: $0.00
+Sangria Red Clearcoat Metallic: $0.00
+French Blue Clearcoat Metallic: $0.00
+Twilight Blue Clearcoat Metallic: $0.00
+CD Silver Clearcoat Metallic: $0.00
+Pitch Black Clearcoat: $0.00
+Cloud 9 White Clearcoat: $0.00
+
+[Transmission]
+Automatic: $0.00
+Standard: $-815.00
+
+[Brakes/Traction Control]
+Standard: $0.00
+ABS: $400.00
+ABS with Advance Trac: $1625.00
+
+[Side Impact Airbags]
+None: $0.00
+Selected: $350.00
+
+[Power Moonroof]
+None: $0.00
+Selected: $595.00
+
+-------------------------------------
+Serializating Focus Wagon ZTW
+Serialization done, saved to auto.ser
+-------------------------------------
+Deserializating Focus Wagon ZTW
+Deserialization done
+- - - - - - - - - - - - - - - - - - -
+Focus Wagon ZTW
+Base Price :$18445.00
+
+[Color]
+Fort Knox Gold Clearcoat Metallic: $0.00
+Liquid Grey Clearcoat Metallic: $0.00
+Infra-Red Clearcoat: $0.00
+Grabber Green Clearcoat Metallic: $0.00
+Sangria Red Clearcoat Metallic: $0.00
+French Blue Clearcoat Metallic: $0.00
+Twilight Blue Clearcoat Metallic: $0.00
+CD Silver Clearcoat Metallic: $0.00
+Pitch Black Clearcoat: $0.00
+Cloud 9 White Clearcoat: $0.00
+
+[Transmission]
+Automatic: $0.00
+Standard: $-815.00
+
+[Brakes/Traction Control]
+Standard: $0.00
+ABS: $400.00
+ABS with Advance Trac: $1625.00
+
+[Side Impact Airbags]
+None: $0.00
+Selected: $350.00
+
+[Power Moonroof]
+None: $0.00
+Selected: $595.00
+
+-------------------------------------
+Testing the setter and getter
+- - - - - - - - - - - - - - - - - - -
+Test getOptionSetSize()
+Option set list size is 5
+- - - - - - - - - - - - - - - - - - -
+Test setOptionSet()
+[Color]
+Fort Knox Gold Clearcoat Metallic: $0.00
+Liquid Grey Clearcoat Metallic: $0.00
+Infra-Red Clearcoat: $0.00
+Grabber Green Clearcoat Metallic: $0.00
+Sangria Red Clearcoat Metallic: $0.00
+French Blue Clearcoat Metallic: $0.00
+Twilight Blue Clearcoat Metallic: $0.00
+CD Silver Clearcoat Metallic: $0.00
+Pitch Black Clearcoat: $0.00
+Cloud 9 White Clearcoat: $0.00
+
+[Test Set Method]
+
+[Brakes/Traction Control]
+Standard: $0.00
+ABS: $400.00
+ABS with Advance Trac: $1625.00
+
+[Side Impact Airbags]
+None: $0.00
+Selected: $350.00
+
+[Power Moonroof]
+None: $0.00
+Selected: $595.00
+
+- - - - - - - - - - - - - - - - - - -
+Test deleteOptionSet()
+[Color]
+Fort Knox Gold Clearcoat Metallic: $0.00
+Liquid Grey Clearcoat Metallic: $0.00
+Infra-Red Clearcoat: $0.00
+Grabber Green Clearcoat Metallic: $0.00
+Sangria Red Clearcoat Metallic: $0.00
+French Blue Clearcoat Metallic: $0.00
+Twilight Blue Clearcoat Metallic: $0.00
+CD Silver Clearcoat Metallic: $0.00
+Pitch Black Clearcoat: $0.00
+Cloud 9 White Clearcoat: $0.00
+
+[Test Set Method]
+
+[Brakes/Traction Control]
+Standard: $0.00
+ABS: $400.00
+ABS with Advance Trac: $1625.00
+
+[Side Impact Airbags]
+None: $0.00
+Selected: $350.00
+
+Option Set Not Exist or Deleted
+
+- - - - - - - - - - - - - - - - - - -
+[Color]
+null: $0.00
+null: $0.00
+null: $0.00
+null: $0.00
+null: $0.00
+
+[Transmission]
+
+[Side Impact Airbags]
+
+[Side Impact Airbags]
+None: $0.00
+Selected: $350.00
+
+Option Set Not Exist or Deleted
+
+Test Success

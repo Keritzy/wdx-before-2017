@@ -1,0 +1,121 @@
+      Automobile to Database Test Program
+-------------------------------------------------
+     Create Database(with cleaning old data)
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[SUCCESS] Connected to Database
+[SUCCESS] DATABASE Dropped: AutomobileDB
+[SUCCESS] DATABASE Created. TABLES created.
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+          Add Automobile to Database
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[SUCCESS] Connected to Database
+[SUCCESS] Focus Wagon ZTW Added to Database
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+[SUCCESS] Connected to Database
+[SUCCESS] ModelS Tesla Added to Database
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+[SUCCESS] Connected to Database
+[SUCCESS] Prius Toyota Added to Database
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+         AutomobileDB.Automobile Table
+  AutoId          AutoName         BasePrice
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+    0       Focus Wagon ZTW         18445
+    1          ModelS Tesla         55500
+    2          Prius Toyota         18641
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+          AutomobileDB.OptionSet Table
+ OpSetID           OpSetName            AutoId
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+   0                       Color           0
+   1                Transmission           0
+   2     Brakes/Traction Control           0
+   3         Side Impact Airbags           0
+   4              Power Moonroof           0
+   5                       Color           1
+   6                Transmission           1
+   7     Brakes/Traction Control           1
+   8         Side Impact Airbags           1
+   9              Power Moonroof           1
+  10                       Color           2
+  11                Transmission           2
+  12     Brakes/Traction Control           2
+  13         Side Impact Airbags           2
+  14              Power Moonroof           2
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+         AutomobileDB.AutoOption Table
+OpID          OpName                   OpPrice  OpSetID   AutoID
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+0    Fort Knox Gold Clearcoat Metallic    0        0         0
+1    Liquid Grey Clearcoat Metallic       0        0         0
+2    Infra-Red Clearcoat                  0        0         0
+3    Grabber Green Clearcoat Metallic     0        0         0
+4    Sangria Red Clearcoat Metallic       0        0         0
+5    French Blue Clearcoat Metallic       0        0         0
+6    Twilight Blue Clearcoat Metallic     0        0         0
+7    CD Silver Clearcoat Metallic         0        0         0
+8    Pitch Black Clearcoat                0        0         0
+9    Cloud 9 White Clearcoat              0        0         0
+10   Automatic                            0        1         0
+11   Standard                             -815     1         0
+12   Standard                             0        2         0
+13   ABS                                  400      2         0
+14   ABS with Advance Trac                1625     2         0
+15   None                                 0        3         0
+16   Selected                             350      3         0
+17   None                                 0        4         0
+18   Selected                             595      4         0
+19   Space Grey                           100      5         1
+20   Rose Gold                            200      5         1
+21   Deep Silver                          100      5         1
+22   Automatic                            0        6         1
+23   Electric                             815      6         1
+24   Standard                             0        7         1
+25   ABS                                  400      7         1
+26   ABS with Advance Trac                1625     7         1
+27   None                                 0        8         1
+28   Selected                             350      8         1
+29   None                                 0        9         1
+30   Selected                             595      9         1
+31   Space Grey                           200      10        2
+32   Rose Gold                            100      10        2
+33   Deep Silver                          300      10        2
+34   Automatic                            0        11        2
+35   Electric                             888      11        2
+36   Standard                             0        12        2
+37   ABS                                  488      12        2
+38   ABS with Advance Trac                1688     12        2
+39   None                                 0        13        2
+40   Selected                             388      13        2
+41   None                                 0        14        2
+42   Selected                             588      14        2
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+         Delete Automobile from Database
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[SUCCESS] Connected to Database
+[SUCCESS] Focus Wagon ZTW Option Deleted
+[SUCCESS] Focus Wagon ZTW OptionSet Deleted
+[SUCCESS] Focus Wagon ZTW Deleted
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+[SUCCESS] Connected to Database
+[SUCCESS] ModelS Tesla Option Deleted
+[SUCCESS] ModelS Tesla OptionSet Deleted
+[SUCCESS] ModelS Tesla Deleted
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+         AutomobileDB.Automobile Table
+  AutoId          AutoName         BasePrice
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+    2          Prius Toyota         18641
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+            Update Automobile Record
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[SUCCESS] Connected to Database
+[SUCCESS] Prius Toyota BasePrice Updated
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+         AutomobileDB.Automobile Table
+  AutoId          AutoName         BasePrice
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+    2          Prius Toyota         99999
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+             Test Program Completed
+-------------------------------------------------

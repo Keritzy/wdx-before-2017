@@ -1,0 +1,20 @@
+ModelS 
+Tesla
+55500
+Color#3
+Space Grey,100
+Rose Gold,200
+Deep Silver,100
+Transmission#2
+Automatic,0
+Electric,815
+Brakes/Traction Control#3
+Standard,0
+ABS,400
+ABS with Advance Trac,1625
+Side Impact Airbags#2
+None,0
+Selected,350
+Power Moonroof#2
+None,0
+Selected,595

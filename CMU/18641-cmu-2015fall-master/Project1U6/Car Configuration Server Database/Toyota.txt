@@ -1,0 +1,20 @@
+Prius
+Toyota
+18641
+Color#3
+Space Grey,200
+Rose Gold,100
+Deep Silver,300
+Transmission#2
+Automatic,0
+Electric,888
+Brakes/Traction Control#3
+Standard,0
+ABS,488
+ABS with Advance Trac,1688
+Side Impact Airbags#2
+None,0
+Selected,388
+Power Moonroof#2
+None,0
+Selected,588

@@ -1,0 +1,45 @@
+Starting Client...
+Handling session with 10.0.0.68:8888
+Server: Connected to Port 8888
+Select Function:
+1.Upload
+2.Configure
+0.Quit
+Your Choice: 1
+Server: Get upload automobile request, Please input the .properties file number
+0 Sample_Car.Properties
+1 Focus.Properties
+2 ModelS.Properties
+0
+Server: Get File Name: Sample_Car.Properties
+Server: build Auto successfully
+Select Function:
+1.Upload
+2.Configure
+0.Quit
+Your Choice: 1
+Server: Get upload automobile request, Please input the .properties file number
+0 Sample_Car.Properties
+1 Focus.Properties
+2 ModelS.Properties
+1
+Server: Get File Name: Focus.Properties
+Server: build Auto successfully
+Select Function:
+1.Upload
+2.Configure
+0.Quit
+Your Choice: 1
+Server: Get upload automobile request, Please input the .properties file number
+0 Sample_Car.Properties
+1 Focus.Properties
+2 ModelS.Properties
+2
+Server: Get File Name: ModelS.Properties
+Server: build Auto successfully
+Select Function:
+1.Upload
+2.Configure
+0.Quit
+Your Choice: 0
+closed!

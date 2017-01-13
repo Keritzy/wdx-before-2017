@@ -1,0 +1,473 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf340
+{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset134 STSongti-SC-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red247\green247\blue247;\red191\green191\blue191;}
+{\info
+{\title Formatting Instructions for NIPS -17-}
+{\author NIPS publication chair}
+{\*\company Microsoft Corporation}}\margl2160\margr2160\vieww20300\viewh16100\viewkind1
+\deftab720
+\pard\pardeftab720\ri0\sl226\slmult1\sb280\sa280\qc\partightenfactor0
+
+\f0\b\fs34 \cf0 \kerning1\expnd5\expndtw28
+\
+Final Report for 10601
+\fs20 \kerning1\expnd1\expndtw5
+\
+\pard\tx2610\tx5670\pardeftab720\ri0\sl226\slmult1\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+\
+	\
+                                      Jinhong Chen\kerning1\expnd1\expndtw5
+\super                        \kerning1\expnd1\expndtw5
+\nosupersub Da Wang\
+\pard\tx2610\tx5670\pardeftab720\ri0\sl226\slmult1\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+                           {\field{\*\fldinst{HYPERLINK "mailto:jinhongc@andrew.cmu.edu"}}{\fldrslt jinhongc@andrew.cmu.edu}}     {\field{\*\fldinst{HYPERLINK "mailto:dawang@andrew.cmu.edu"}}{\fldrslt dawang@andrew.cmu.edu}}\
+\pard\pardeftab720\ri0\sl226\slmult1\sb540\sa140\qc\partightenfactor0
+
+\b\fs24 \cf0 \kerning1\expnd1\expndtw6
+Abstract\
+\pard\pardeftab720\li720\ri720\sl226\slmult1\sb120\sa100\qj\partightenfactor0
+
+\b0\fs20 \cf0 \kerning1\expnd1\expndtw5
+This is the midterm report for project of Introduction to Machine Learning(10-601, Fall 2015). In this project, we perform several machine learning method to classify images on the CIFAR-10[1] database. Conducted by an empirical study, the goal is to investigate the performance of different classifiers with different features and Principle Component Analysis(PCA). We also test deep learning algorithm with unsupervised feature extraction. Currently, by using neural network with hog feature, we can obtain a testing accuracy of 52%, which is 4% higher than the baseline implementation.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b\fs24 \cf0 \kerning1\expnd4\expndtw24
+1	INTRODUCTION\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0\fs20 \cf0 \kerning1\expnd1\expndtw5
+Classifying images to different categories is the main focus for automatic recognition. In order to achieve higher precision, various methods of computer vision are proposed. Nowadays, deep learning is one of the most popular and effective machine learning techniques in this domain because of its ability of modeling image data with high-level abstractions[2]. The number of dimensions of deep learning algorithm can be extremely large which is barely possible for human to understand. However, traditional computer vision features such as GIST, Scale-invariant Feature Transform(SIFT), Speeded Up Robust Features(SURF), HOG are also significant for accurately image classification. Instead of using the raw pixel data, the features mentioned above can capture different structures such as edges, lines, orientations, etc[3].\
+As the main focus of these project is to test different machine learning algorithms, the precision of classification will not be the only criteria of the project. Instead, we will use different features to evaluate the performance of Logistic Regression, Naive Bayes, Neural Network and Support Vector Machine. Besides, we also use Principle Component Analysis(PCA) to reduce the dimensions of features to improve accuracy. In order to find the best parameter for each machine learning algorithm, we tuned the parameters with many options and then compare their performance.\
+Another work for this project is building a data preprocessing pipeline so as to eliminate outliers in the training data. The idea of this method is to use better training data to get better classifier. So we cover all three factors that may affect the precision of classification. Data preprocessing contribute to better training data. Different feature extraction and PCA method contribute to more effective descriptor. Testing different machine learning algorithm can find the best machine learning technique that meets our needs.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b\fs24 \cf0 \kerning1\expnd4\expndtw24
+2	BACKGROUND
+\b0\fs20 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+This section introduce the dataset, feature and machine learning algorithm related to this project. \
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+2.1	Dataset\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+The CIFAR-10 is a labeled subset of 80 million tiny images which consists of 60000 32x32 color images in 10 classes, with 6000 per class. There are 50000 training images and 10000 test images. Below is a random sample from the CIFAR-10 with 10 random images from each class.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic 1.jpg \width6040 \height4760
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\qc\partightenfactor0
+\cf0 \
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qc\partightenfactor0
+
+\f0\fs20 \cf0 \kerning1\expnd1\expndtw5
+Figure 1. a sample of images in CIFAR-10\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+2.2	HOG feature\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+In computer vision, it is critical to find proper visual features so that complex tasks can be performed. In this project, it is better to use the features of the image as they are more descriptive than the raw image pixel. Compared with SIFT which captures the properties at key points, HOG describes the shapes of a given region in a broader scope. Also, HOG is typically used in a sliding window fashion in object detection systems. The images in CIFAR-10 are quite small(32x32) so it may be better to use HOG in this project.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+2.3	SIFT feature\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+SIFT computes the gradient histogram only for patches (usually 16*16 divided into 16 cells) around specific interest points obtained by taking the DoG's (as an approximation to LoG's) in the scale space. It is a local descriptor which makes it perform bad when the input images are small.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+2.4	GIST feature\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+GIST is typically computed over the entire image (i.e. it is a global image descriptor) for the purposes of scene classification. The idea is similar to HOG which focus on the global feature rather than the key points. So it is also a good choice to use GIST features.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+2.5	Logistic Regression\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+Logistic regression is one of the most useful linear classifier in machine learning. Logistic regression measures the relationship between the categorical dependent variable and one or more independent variables by estimating probabilities using a logistic function, which is the cumulative logistic distribution. The logistic function is shown below:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic e1.jpg \width1960 \height860
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f0\fs20 \cf0 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+We can use Maximum Conditional Likelihood Estimation(MCLE) to train the model.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+2.6	Neural Network\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+Unlike logistic regression, neural network with multiple hidden layers can be regarded as non-linear classifier. It has been proven to be powerful in many domains especially image classification. Typically, a neural network can be composed of a large number of interconnected computing elements in order to learn high level features from the input layer. An example of the structure of a neural network is shown below:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic 2.png \width2960 \height3560
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f0\fs20 \cf0 \kerning1\expnd1\expndtw5
+\
+Figure 2. a sample of neural network with one hidden layer\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+However, neural network cannot provide a explicit learning process of its hidden layers. In order to find the best parameters, we usually increase the number of hidden layers which takes more time to train the neural network. After comparing the performance under different parameters, we can select the best neural network model.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+2.7	Support Vector Machine\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+SVM is a discriminative training process of linear classifier by maximizing the margin hyperplane of classification[4]:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic e2.jpg \width2760 \height1000
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f0\fs20 \cf0 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+As CIFAR-10 dataset contains 10 different classes, we need to use the multi-class SVM to classify the images. Using kernel functions, SVM can often find the proper linear spreadable hyperplane in higher dimension while the data is not linear separable originally. We have tested several kernel function and it turns out that the Radial Basis Function(RBF) kernel performs better in this project.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic e3.jpg \width3640 \height640
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f0\fs20 \cf0 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+Here \uc0\u947  is the kernel parameter. The optimal value of \u947  should be selected by cross validation method.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+2.8	Principle Component Analysis(PCA)\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+PCA refers to a specific form of dimension reduction where the principle components are drawn on the sequentially orthogonal axes of the largest variance. It provides a way to reduce dimensionality without losing too much information[5]. With the help of PCA, we can build a model without redundant or irrelevant features.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b\fs24 \cf0 \kerning1\expnd4\expndtw24
+3	METHOD
+\b0\fs20 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+3.1	Feature Extraction\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+In the project so far, we tried two kind of feature extraction method before classification. One is the raw intensity of the image, the other is the Histogram of Oriented Gradient (HOG).\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+3.1.1	Raw Intensity\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+When using the raw intensity as the feature, we did not extract feature from the images. Each image (row) in the testing data X was treated as the feature of the image, and input directly to the classifiers. The raw intensity, as a kind of feature, represent the isolated color value of the pixel in the images.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+3.1.2	Histograms of Oriented Gradient ( HOG )\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+The HOG feature was extracted from the images using a open source library ( VLFeat ) by first transforming each image (row) to a matrix and calling the \'91vl_hog\'92 routine.\
+The HOG feature extract the orientation feature from the image by counting the occurrences of gradient orientation in local patches of the images, and place them in discrete bin which forms the histogram of gradients. The magnitude of the gradient is used as the vote on the histogram. The HOG feature captures the information of edges ( oriented gradients ) in the images, since gradient near the edge will have large magnitude.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+3.2	Classifiers\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+Second level headings are lower case (except for first word and proper nouns), flush left, bold and in point size 10. One line space before the second level heading and \'bd line space after the second level heading.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+3.2.1	Na\'efve Bayes Classifier\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+To implement the Na\'efve Bayes Classifier, we optimized the classifier we implemented in Homework 1 by vectorizing calculation both in classification.\
+In training stage, the classifier calculates mean and variance of each feature in each class. Each feature in each class is considered a Gaussian distribution independently. And later in classification stage, the classifiers calculate the probability of the input sample belonging to each class, and pick the class which maximize the probability to be the result.\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+3.2.2	Logistic Regression ( Softmax )\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+Since the Logistic Regression technique can only classify binary target. We extended our Logistic Regression to Softmax Regression, by using a 3rd party function optimizer ( minFunc ) to find the parameters which minimize the error. The Softmax regression is a generalized version of logistic regression in that it estimates the probability of a data belonging to a class in a way similar to logistic regression (using sigmoid) but in the meantime it supports multi class classification by adding more sigmoid units. The hypothesis made by the Softmax regression is shown in the following equation:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Pasted Graphic 2.pdf \width5620 \height1420
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\qc\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs20 \cf0 Where P(y=i|x;\cb2 \expnd0\expndtw0\kerning0
+\uc0\u952 ) is the probability that the input x classified to class i,  and \u952  is the parameter to the regression. To find the parameter, we have to minimize the cost function J(\u952 ) over training data. We minimize the cost function using a third party optimizer `minFunc` in our implementation.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Pasted Graphic 5.pdf \width5120 \height2800
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f0\fs20 \cf0 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b \cf0 \kerning1\expnd1\expndtw5
+3.2.3	Neural Network
+\b0 \kerning1\expnd1\expndtw5
+\
+We implemented our neural network using Feedforward and Back propagation algorithm with an adjustable size of hidden units with 3 layer (input + hidden + output). In the neural network classification, we used the HOG feature as the input to the neural network.\
+\
+
+\b \kerning1\expnd1\expndtw5
+3.2.3.1	Features selection\
+
+\b0 \kerning1\expnd1\expndtw5
+Since the features of HOG has a dimension of 1984, which is pretty large resulting in a large scale of parameters in the neural network ,we decided to first filter out some features using the following policy: beginning with the first feature, we incrementally add a new feature into the feature set, if the resulting classification (using Naive Bayes Classifier) accuracy increased, we keep this feature, otherwise, we abandon this feature. After applying this policy, we selected 760 features from the HOG feature.\
+\
+
+\b \kerning1\expnd1\expndtw5
+3.2.3.2	Model selection\
+
+\b0 \kerning1\expnd1\expndtw5
+The number of nodes in the neural network has great influence on the number of parameters in the model. Too much parameter can result in overfitting. In our case, the input feature is 760 dimension, and the number of output class is 10. Adding a node in the hidden layer adds 761+10 parameter to the model.\
+To prevent the resultant overfitting by setting too much nodes in the hidden layer, we trained and test(test on the \'91test_batch.mat\'92) the neural network by incrementally adding nodes to the neural network, this give use the error rate on both the training set and test set with different number of nodes in the hidden layer which is shown in the following plot.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Pasted Graphic 8.pdf \width3780 \height2820
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\qc\partightenfactor0
+
+\f0\fs20 \cf0 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+Finally, we chose 25 nodes for our hidden layer, because the test error rate cease to reduce significantly with new nodes added. This gives us an accuracy of 48.4%, which is slightly different from what we got during the midway report, the reason is the initial weight is initialized randomly each time a neural network is created, so they ends up a different resulting parameters after training.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b \cf0 \kerning1\expnd1\expndtw5
+3.2.4	Extreme Learning Machine
+\b0 \kerning1\expnd1\expndtw5
+\
+We implemented our extreme learning machine based on [6]. In the extreme learning machine classification, we used the HOG feature as the input to the extreme learning machine. Also, we have tried different kernel function to test the classifier: sigmoid, sin, hardlim, tribas and radbas.\
+\
+
+\b \kerning1\expnd1\expndtw5
+3.2.4.1	Features selection\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+Since the features of HOG with cell size 4 has a dimension of 1984, which is pretty large resulting in a large scale of parameters ,we decided to use a larger cell size (which is 8) so that we get 496 dimension features for a single image. Accompanied with the decrease of the number of dimensions for the feature, the interference among features decreases in the same time. We\'92ve tried different cell size such as 12, 16 but the results show that 8 is the proper size for this problem.\
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b \cf0 \kerning1\expnd1\expndtw5
+3.2.4.2	Model selection\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+The number of nodes in the extreme learning machine has great influence on the number of parameters in the model. Too much parameter can result in overfitting. In our case, the input feature is 496 dimension, we\'92ve test different number of neuron nodes as the hidden layer and the result shows that 1400 hidden nodes is the best choice\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+\
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b \cf0 \kerning1\expnd1\expndtw5
+3.2.5	Linear Discriminant Analysis
+\b0 \kerning1\expnd1\expndtw5
+\
+We implement our Linear Discriminant Analysis algorithm based on [7]. We us HOG feature as the input of the LDA classifier. LDA explicitly attempts to model the difference between the classes of data, so it can also be a multi-class classifier.\
+\
+
+\b \kerning1\expnd1\expndtw5
+3.2.5.1	Features selection\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+Since the features of HOG with cell size 4 has a dimension of 1984, which is pretty large resulting in a large scale of parameters ,we decided to use a larger cell size (which is 8) so that we get 496 dimension features for a single image. Accompanied with the decrease of the number of dimensions for the feature, the interference among features decreases in the same time. It greatly increases the accuracy for prediction because of each feature can be more descriptive.\kerning1\expnd1\expndtw5
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b\fs24 \cf0 \kerning1\expnd4\expndtw24
+4	RESULT
+\b0\fs20 \kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+Feature+Classifier\cell 
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 Accuracy\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 Raw+NB\cell 
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 29.1%\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 Raw+LR\cell 
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 26.2%\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 HOG+NB\cell 
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 47.6%\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\partightenfactor0
+\cf0                           HOG+LR\cell 
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 45.5%\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 HOG+NN(3L+25N)\cell 
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 48.2%\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 HOG+ELM(6400)\cell 
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 51.4%\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 HOG+LDA\cell 
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 51.4%\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 Others(sfm, svm)\cell 
+\pard\intbl\itap1\pardeftab720\ri0\sl226\slmult1\qc\partightenfactor0
+\cf0 < 50.0% (included in the hand-in package)\cell \lastrow\row
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qc\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+Table 1. Comparison on different feature/classifier combination \
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+\cf0 \kerning1\expnd1\expndtw5
+\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\b\fs24 \cf0 \kerning1\expnd4\expndtw24
+5	CONCLUSION\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0\fs20 \cf0 \kerning1\expnd1\expndtw5
+\
+We\'92ve tried different machine learning algorithms with different features to achieve higher accuracy. The great difference between Raw image data and HOG feature show that these features are high representative and useful. On one hand they reduce the computation complexity, on the other side they make us easy to compare among different algorithms. \
+The basic machine algorithms, such as naive bayes and logistic regression, are easy to implement but with limited ability to classify images. Other methods such as neural network and extreme learning machine, can have totally different performance with different parameters. As it is, we have to spend lots of time tuning all the possible combination of parameters to find the best solution. Mathematical method, such as linear discriminant analysis, is highly efficient if the proper features are chosen
+\f2 . \
+For other algorithms we have tested, for example support vector machine, are originally binary classifier thus have different strategies to become the multi-class classifier. 
+\f0 \
+However, there are still several algorithms that we don\'92t have enough time to implement such as decision tree, adaboost, etc. The most important thing we learned from this course is that though it is important to know the detail of the machine learning algorithm, for real life usage, there are lots of other factors will affect the performance of different algorithms. We need to practice more to build our instinct and sensitivity for solving different problem with different techniques.\
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb240\sa40\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+Acknowledgments\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd1\expndtw5
+Thanks for the patience of our teacher and TAs. They try their best to help us have a deeper understanding on what we learn and how to use them in real life project. \
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb240\sa40\partightenfactor0
+
+\b \cf0 \kerning1\expnd4\expndtw24
+References\kerning1\expnd1\expndtw5
+\
+\pard\pardeftab720\ri0\sl226\slmult1\sb120\qj\partightenfactor0
+
+\b0\fs18 \cf0 \kerning1\expnd1\expndtw5
+[1] Alex, K. 2009. Learning multiple layers of features from tiny images\
+[2] Honglak, L., Roger, G., Rajesh, R., and Andrew Y. Ng. 2009. Convolutional deep belief networks for scalable unsupervised learning of hierarchical representations. ICML'09,609-616\
+[3] Andreal, V., and Brian, F. 2010. Vlfeat: an open and portable library of computer vision algorithms. ACM, New York, NY 2010, 1469-1472\
+[4] Leslie, C., Eleazar, E., and Stafford, W., 2001. The spectrum kernel: A string kernel for SVM protein classification. Pacific Symposium on Biocomputing. 566-575\
+[5] Morre, B., 2009. Principal component analysis in  linear systems: Controllability, observability, and model reduction. Automatic Control, IEEE Transactions on Vol. 26. Issue. 1.\
+[6] Guang-Bin Huang, 2015. What are Extreme Learning Machines? Filling the Gap Between Frank Rosenblatt\'92s Dream and John von Neumann\'92s Puzzle. Cogn Comput (2015) 7:263-278\
+[7] Martinez, A. M.; Kak, A. C. (2001). "PCA versus LDA" (PDF). IEEE Transactions on Pattern Analysis and Machine Intelligence 23 (=2): 228\'96233. doi:10.1109/34.908974}

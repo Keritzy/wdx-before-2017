@@ -1,0 +1,107 @@
+Starting Client...
+Handling session with 10.0.0.68:8888
+Server: Connected to Port 8888
+Select Function: 
+1.Upload
+2.Configure
+0.Quit
+Your Choice: 1
+Server: Get upload automobile request, Please input the .properties file number
+0 Sample_Car.Properties
+1 Focus.Properties
+2 ModelS.Properties
+0
+Server: Get File Name: Sample_Car.Properties
+Server: build Auto successfully
+Select Function: 
+1.Upload
+2.Configure
+0.Quit
+Your Choice: 1
+Server: Get upload automobile request, Please input the .properties file number
+0 Sample_Car.Properties
+1 Focus.Properties
+2 ModelS.Properties
+1
+Server: Get File Name: Focus.Properties
+Server: build Auto successfully
+Select Function: 
+1.Upload
+2.Configure
+0.Quit
+Your Choice: 1
+Server: Get upload automobile request, Please input the .properties file number
+0 Sample_Car.Properties
+1 Focus.Properties
+2 ModelS.Properties
+2
+Server: Get File Name: ModelS.Properties
+Server: build Auto successfully
+Select Function: 
+1.Upload
+2.Configure
+0.Quit
+Your Choice: 2
+Server: Get configure request
+Server: send AutoList successfully
+Auto Model Options :
+Model 0 : ToyotaPrius
+Model 1 : FocusWagon ZTW
+Model 2 : TeslaModelS 
+Select a number of model to configure
+1
+Server: Transfer automobile succesfully
+Start Configure the Car
+Color
+0 Fort Knox Gold Clearcoat Metallic:Price 0.00
+1 Liquid Grey Clearcoat Metallic:Price 0.00
+2 Liquid Grey Clearcoat Metallic:Price 0.00
+3 Infra-Red Clearcoat:Price 0.00
+4 Grabber Green Clearcoat Metallic:Price 0.00
+5 Sangria Red Clearcoat Metallic:Price 0.00
+6 French Blue Clearcoat Metallic:Price 0.00
+7 Twilight Blue Clearcoat Metallic:Price 0.00
+8 CD Silver Clearcoat Metallic:Price 0.00
+9 Cloud 9 White Clearcoat:Price 0.00
+select your choice for (Color)
+5
+
+Transmission
+0 Automatic:Price 0.00
+1 Standard:Price -815.00
+select your choice for (Transmission)
+1
+
+Brakes/Traction Control
+0 Standard:Price 0.00
+1 ABS:Price 400.00
+2 ABS with Advance Trac:Price 1625.00
+select your choice for (Brakes/Traction Control)
+2
+
+Side Impact Airbags
+0 None:Price 0.00
+1 Selected:Price 350.00
+select your choice for (Side Impact Airbags)
+1
+
+Power Moonroof
+0 None:Price 0.00
+1 Selected:Price 595.00
+select your choice for (Power Moonroof)
+1
+
+Configured Car For Your Choice
+FocusWagon ZTW
+Option : Sangria Red Clearcoat MetallicPrice : 0.0
+Option : StandardPrice : -815.0
+Option : ABS with Advance TracPrice : 1625.0
+Option : SelectedPrice : 350.0
+Option : SelectedPrice : 595.0
+
+Select Function: 
+1.Upload
+2.Configure
+0.Quit
+Your Choice: 0
+closed!

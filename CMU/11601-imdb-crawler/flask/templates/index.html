@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}IMDB Crawler{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Search: {% if name %}{{ name }}{% else %}Something{% endif %}!</h1>
+</div>
+<p>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
+<p>That was {{ moment(current_time).fromNow(refresh=True) }}.</p>
+{{ wtf.quick_form(form) }}
+
+<h1>Currently Crawling:</h1>
+{{ wtf.quick_form(fresh) }}
+<ul class=entries>
+{% for entry in entries %}
+    <li><{{ entry }}
+{% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+{% endfor %}
+</ul>
+
+<p> </p>
+
+{% endblock %}

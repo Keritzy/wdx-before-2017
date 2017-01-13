@@ -1,0 +1,22 @@
+Model
+Make
+Base Price
+OptionSet0Name#OptionSet0Size
+Option1,price1
+Option2,price2
+...
+OptionSet1Name#OptionSet1Size
+Option1,price1
+Option2,price2
+...
+OptionSet2Name#OptionSet2Size
+Option1,price1
+Option2,price2
+...
+.
+.
+.
+OptionSetiName#OptionSetiSize
+Option1,price1
+Option2,price2
+...

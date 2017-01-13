@@ -1,0 +1,61 @@
+    Car Configuration Application
+-------------------------------------
+Focus Wagon ZTW
+Base Price :$18445.00
+
+Color:
+Fort Knox Gold Clearcoat Metallic:Price 0.00
+Liquid Grey Clearcoat Metallic:Price 0.00
+Infra-Red Clearcoat:Price 0.00
+Grabber Green Clearcoat Metallic:Price 0.00
+Sangria Red Clearcoat Metallic:Price 0.00
+French Blue Clearcoat Metallic:Price 0.00
+Twilight Blue Clearcoat Metallic:Price 0.00
+CD Silver Clearcoat Metallic:Price 0.00
+Pitch Black Clearcoat:Price 0.00
+Cloud 9 White Clearcoat:Price 0.00
+
+Transmission:
+Automatic:Price 0.00
+Standard:Price -815.00
+
+Brakes/Traction Control:
+Standard:Price 0.00
+ABS:Price 400.00
+ABS with Advance Trac:Price 1625.00
+
+Side Impact Airbags:
+None:Price 0.00
+Selected:Price 350.00
+
+Power Moonroof:
+None:Price 0.00
+Selected:Price 595.00
+
+- - - - - - - - - - - - - - - - - - -
+             Test Thread
+- - - - - - - - - - - - - - - - - - -
+Thread #1 [OptionSet Name] Transmission->Thread_Transmission1
+Thread #1 [OptionSet Name] Thread_Transmission1->Thread_Transmission2
+Thread #1 [OptionSet Name] Thread_Transmission2->Thread_Transmission3
+Thread #1 [OptionSet Name] Thread_Transmission3->Transmission
+Thread #6 [OptionSet Brakes/Traction Control] [Option Standard] Price: 123.0
+Thread #6 [OptionSet Brakes/Traction Control] [Option Standard] Price: 246.0
+Thread #6 [OptionSet Brakes/Traction Control] [Option Standard] Price: 369.0
+Thread #6 [OptionSet Brakes/Traction Control] [Option Standard] Price: 492.0
+Thread #5 [OptionSet Power Moonroof] [Option Selected] Price: 111.0
+Thread #5 [OptionSet Power Moonroof] [Option Selected] Price: 222.0
+Thread #5 [OptionSet Power Moonroof] [Option Selected] Price: 333.0
+Thread #5 [OptionSet Power Moonroof] [Option Selected] Price: 444.0
+Thread #4 [OptionSet Transmission] [Option Automatic] Price: 100.0
+Thread #4 [OptionSet Transmission] [Option Automatic] Price: 200.0
+Thread #4 [OptionSet Transmission] [Option Automatic] Price: 300.0
+Thread #4 [OptionSet Transmission] [Option Automatic] Price: 400.0
+Thread #3 [OptionSet Name] Power Moonroof->Thread_Power Moonroof1
+Thread #3 [OptionSet Name] Thread_Power Moonroof1->Thread_Power Moonroof2
+Thread #3 [OptionSet Name] Thread_Power Moonroof2->Thread_Power Moonroof3
+Thread #3 [OptionSet Name] Thread_Power Moonroof3->Power Moonroof
+Thread #2 [OptionSet Name] Color->Thread_Color1
+Thread #2 [OptionSet Name] Thread_Color1->Thread_Color2
+Thread #2 [OptionSet Name] Thread_Color2->Thread_Color3
+Thread #2 [OptionSet Name] Thread_Color3->Color

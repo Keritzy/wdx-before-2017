@@ -1,0 +1,56 @@
+Testcase #1 with 20 times toss
+**** Toss Simulator ****
+Toss 20 Times
+Initially facing up: tails
+Toss #1 Facing Up: tails
+Toss #2 Facing Up: heads
+Toss #3 Facing Up: tails
+Toss #4 Facing Up: tails
+Toss #5 Facing Up: tails
+Toss #6 Facing Up: heads
+Toss #7 Facing Up: heads
+Toss #8 Facing Up: heads
+Toss #9 Facing Up: heads
+Toss #10 Facing Up: heads
+Toss #11 Facing Up: heads
+Toss #12 Facing Up: heads
+Toss #13 Facing Up: heads
+Toss #14 Facing Up: tails
+Toss #15 Facing Up: tails
+Toss #16 Facing Up: tails
+Toss #17 Facing Up: tails
+Toss #18 Facing Up: tails
+Toss #19 Facing Up: heads
+Toss #20 Facing Up: heads
+11 times tossing HEADS
+9 times tossing TAILS
+**** Simulation Done ****
+-----------------
+Testcase #2 with 10 times toss
+**** Toss Simulator ****
+Toss 10 Times
+Initially facing up: tails
+Toss #1 Facing Up: heads
+Toss #2 Facing Up: tails
+Toss #3 Facing Up: heads
+Toss #4 Facing Up: tails
+Toss #5 Facing Up: tails
+Toss #6 Facing Up: heads
+Toss #7 Facing Up: tails
+Toss #8 Facing Up: tails
+Toss #9 Facing Up: tails
+Toss #10 Facing Up: heads
+4 times tossing HEADS
+6 times tossing TAILS
+**** Simulation Done ****
+-----------------
+Testcase #3 with 0 times toss
+**** Toss Simulator ****
+Toss 0 Times
+No toss or Illegal toss times!
+-----------------
+Testcase #4 with -1 times toss
+**** Toss Simulator ****
+Toss -1 Times
+No toss or Illegal toss times!
+-----------------

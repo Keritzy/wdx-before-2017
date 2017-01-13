@@ -1,0 +1,84 @@
+Car Parking Simulator
+#################################
+Simulator #1: Within the purchased parking time
+The Car has parked for 50 minutes
+Purchased parking time is 60 minutes
+- - - - - - - - - - -
+Police Office Checking
+Legal Parking.
+#################################
+Simulator #2: The same as the purchased parking time
+The Car has parked for 60 minutes
+Purchased parking time is 60 minutes
+- - - - - - - - - - -
+Police Office Checking
+Legal Parking.
+#################################
+Simulator #3: Beyond the purchased parking time(1min)
+The Car has parked for 61 minutes
+Purchased parking time is 60 minutes
+- - - - - - - - - - -
+Police Office Checking
+Illegal Parking.
+- - - - - - - - - - - - - -
+Illegal Parking Fine Ticket
+- - - - - - - - - - -
+Car Infomation
+- - - - - - - - - - -
+Make: BENZ
+Model: S550
+Color: BLACK
+License Number: 20150903
+- - - - - - - - - - -
+Fine : $25.0
+- - - - - - - - - - -
+Ticket Issued Officer
+- - - - - - - - - - -
+Name: Harriet Sugar
+Badge Number: 0003
+#################################
+Simulator #4: Ticketing within 1 hour
+The Car has parked for 120 minutes
+Purchased parking time is 60 minutes
+- - - - - - - - - - -
+Police Office Checking
+Illegal Parking.
+- - - - - - - - - - - - - -
+Illegal Parking Fine Ticket
+- - - - - - - - - - -
+Car Infomation
+- - - - - - - - - - -
+Make: AUDI
+Model: RS7
+Color: SILVER
+License Number: 20150904
+- - - - - - - - - - -
+Fine : $25.0
+- - - - - - - - - - -
+Ticket Issued Officer
+- - - - - - - - - - -
+Name: Kathy Griffin
+Badge Number: 0004
+#################################
+Simulator #5: Ticketing beyond 1 hour
+The Car has parked for 121 minutes
+Purchased parking time is 60 minutes
+- - - - - - - - - - -
+Police Office Checking
+Illegal Parking.
+- - - - - - - - - - - - - -
+Illegal Parking Fine Ticket
+- - - - - - - - - - -
+Car Infomation
+- - - - - - - - - - -
+Make: TESLA
+Model: MODEL S
+Color: BLACK
+License Number: 20150905
+- - - - - - - - - - -
+Fine : $35.0
+- - - - - - - - - - -
+Ticket Issued Officer
+- - - - - - - - - - -
+Name: Tesla Domo
+Badge Number: 0005
