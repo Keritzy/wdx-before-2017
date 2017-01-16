@@ -1,0 +1,347 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "UTM Server API",
+        "description": "This is an auto-generated API Document for UTM Server Project",
+        "version": "1.0.0",
+        "termsOfService": "http://to.be.decided",
+        "contact": {
+            "email": "da.wang@dji.com"
+        },
+        "license": {
+            "name": "Url http://to.be.decided"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/debug/": {
+            "get": {
+                "tags": [
+                    "debug"
+                ],
+                "description": "Several basic information about this backend api",
+                "operationId": "DebugController.Show DebugController Welcome Page",
+                "responses": {
+                    "200": {
+                        "description": "Debug Controller Welcome Page"
+                    },
+                    "404": {
+                        "description": "Template not found"
+                    }
+                }
+            }
+        },
+        "/debug/near": {
+            "post": {
+                "tags": [
+                    "debug"
+                ],
+                "description": "Given droneID, latitude and longitude, and find the nearby drones",
+                "operationId": "DebugController.Find the Nearby Drones",
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "droneid",
+                        "description": "The ID of the Simulated Drone",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "latitude",
+                        "description": "The latitude of current position",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "longitude",
+                        "description": "The longitude of current position",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "400": {
+                        "description": "no enought input parameter"
+                    },
+                    "500": {
+                        "description": "record conflict TODO"
+                    }
+                }
+            }
+        },
+        "/debug/uploadstatus": {
+            "post": {
+                "tags": [
+                    "debug"
+                ],
+                "description": "Receive data from DJI GO or Simulator",
+                "operationId": "DebugController.Upload Current Flying Status",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "example {\"records\" : [{\"latitude\": 43.332432, \"longitude\": 107.231000, \"altitude\": 0.437714, \"yaw\": 25, \"speedX\": 13, \"speedY\": 9, \"speedZ\": 2, \"flightTime\": 440, \"droneType\": \"p4\", \"droneID\": \"test010\", \"currentTime\": 1472818462, \"userInfo\": \"User Info Field\", \"orderID\": \"7f5de270-702c-11e6-8f5a-075bc1a783de\", \"status\": 0, \"platform\": \"ios\"}]}",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                }
+            }
+        },
+        "/debug/weather": {
+            "post": {
+                "tags": [
+                    "debug"
+                ],
+                "description": "Fetch the weather condition for specific location",
+                "operationId": "DebugController.Get Current Weather",
+                "responses": {
+                    "200": {
+                        "description": "The weather condition"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                }
+            }
+        },
+        "/near/": {
+            "get": {
+                "tags": [
+                    "near"
+                ],
+                "description": "Basic information about near controller",
+                "operationId": "NearController.Show Near Controller Welcome Page",
+                "responses": {
+                    "200": {
+                        "description": "Position Near Welcome Page"
+                    },
+                    "404": {
+                        "description": "Template not found"
+                    }
+                }
+            }
+        },
+        "/simulator/": {
+            "get": {
+                "tags": [
+                    "simulator"
+                ],
+                "description": "Basic information about simulator controller",
+                "operationId": "SimulatorController.Show Simulator Controller Welcome Page",
+                "responses": {
+                    "200": {
+                        "description": "Simulator Controller Welcome Page"
+                    },
+                    "404": {
+                        "description": "Template not found"
+                    }
+                }
+            }
+        },
+        "/simulator/multiplediff": {
+            "post": {
+                "tags": [
+                    "simulator"
+                ],
+                "description": "Given droneID, latitude and longitude, and generate multiple fly records with different droneids",
+                "operationId": "SimulatorController.Simulate multiple Fly Records with different droneids",
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "count",
+                        "description": "The count of the fly records",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "droneid",
+                        "description": "The prefix ID of the Simulated Drone",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "latitude",
+                        "description": "The latitude of current position",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "longitude",
+                        "description": "The longitude of current position",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "400": {
+                        "description": "no enought input parameter"
+                    },
+                    "500": {
+                        "description": "record conflict TODO"
+                    }
+                }
+            }
+        },
+        "/simulator/single": {
+            "post": {
+                "tags": [
+                    "simulator"
+                ],
+                "description": "Given droneID, latitude and longitude, and generate a single fly record",
+                "operationId": "SimulatorController.Simulate a single Fly Record",
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "droneid",
+                        "description": "The ID of the Simulated Drone",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "latitude",
+                        "description": "The latitude of current position",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "longitude",
+                        "description": "The longitude of current position",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "400": {
+                        "description": "no enought input parameter"
+                    },
+                    "500": {
+                        "description": "record conflict TODO"
+                    }
+                }
+            }
+        },
+        "/status/": {
+            "get": {
+                "tags": [
+                    "status"
+                ],
+                "description": "Basic information about position controller",
+                "operationId": "StatusController.Show Position Controller Welcome Page",
+                "responses": {
+                    "200": {
+                        "description": "Position Controller Welcome Page"
+                    },
+                    "404": {
+                        "description": "Template not found"
+                    }
+                }
+            }
+        },
+        "/status/testredis": {
+            "get": {
+                "tags": [
+                    "status"
+                ],
+                "description": "Will be removed on product version",
+                "operationId": "StatusController.Redis Health Check",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                }
+            }
+        },
+        "/status/upload": {
+            "post": {
+                "tags": [
+                    "status"
+                ],
+                "description": "Receive data from DJI GO or Simulator",
+                "operationId": "StatusController.Upload Current Flying Status",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "example {\"records\" : [{\"latitude\": 43.332432, \"longitude\": 107.231000, \"altitude\": 0.437714, \"yaw\": 25, \"speedX\": 13, \"speedY\": 9, \"speedZ\": 2, \"flightTime\": 440, \"droneType\": \"p4\", \"droneID\": \"test010\", \"currentTime\": 1472818462, \"userInfo\": \"User Info Field\", \"orderID\": \"7f5de270-702c-11e6-8f5a-075bc1a783de\", \"status\": 0, \"platform\": \"ios\"}]}",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                }
+            }
+        },
+        "/weather/": {
+            "get": {
+                "tags": [
+                    "weather"
+                ],
+                "description": "Basic information about weather controller",
+                "operationId": "WeatherController.Show Weather Controller Welcome Page",
+                "responses": {
+                    "200": {
+                        "description": "WeatherController Welcome Page"
+                    },
+                    "404": {
+                        "description": "Template not found"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "status",
+            "description": "StatusController : Status related operations\n"
+        },
+        {
+            "name": "weather",
+            "description": "WeatherController : weather related operations\n"
+        },
+        {
+            "name": "near",
+            "description": "NearController : Get Nearby Drones and Information\n"
+        },
+        {
+            "name": "debug",
+            "description": "DebugController : Operations for Debugging Usage\n"
+        },
+        {
+            "name": "simulator",
+            "description": "SimulatorController : Simulate all kinds of Drone actions\n"
+        }
+    ]
+}
